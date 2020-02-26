@@ -1,5 +1,5 @@
 public class PrimeNumbersSum {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int n = 10;
         int k = 0;
         int s = 0;

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class NumberOfDays {
-    public static void main(String args[]){
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         System.out.println("Enther the month: ");
         String month = scan.next();
