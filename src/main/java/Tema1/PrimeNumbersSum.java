@@ -1,3 +1,5 @@
+package Tema1;
+
 public class PrimeNumbersSum {
     public static void main(String[] args) {
         int n = 10;

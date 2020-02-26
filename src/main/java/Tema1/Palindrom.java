@@ -1,3 +1,5 @@
+package Tema1;
+
 import java.util.Scanner;
 
 public class Palindrom {
@@ -11,7 +13,7 @@ public class Palindrom {
             n = n / 10;
         }
         if (number1 == number2) {
-            System.out.println("Palindrom");
+            System.out.println("Tema1.Palindrom");
         } else {
             System.out.println("Nu este palindrom");
         }
