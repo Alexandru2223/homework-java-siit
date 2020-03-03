@@ -37,5 +37,6 @@ public class Exercise4 {
                     c[i][j] += x[i][k] * y[k][j];
                 }
         return c;
+
     }
 }
