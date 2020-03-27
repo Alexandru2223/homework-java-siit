@@ -1,4 +1,4 @@
-package Tema4;
+package Tema4.ATMHw;
 
 import lombok.Getter;
 import lombok.Setter;
