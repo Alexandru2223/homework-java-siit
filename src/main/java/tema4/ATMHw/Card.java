@@ -1,5 +1,7 @@
 package tema4.ATMHw;
 
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,21 +29,21 @@ public class Card  {
         bankAccount.setAttachedCardNumbers(number);
     }*/
 
-    public void depositMoney(double amount){
+    public void depositMoney(BigDecimal amount){
         System.out.println("Succesfully deposit " + amount);
-        bankAccount.setBalance(bankAccount.getBalance()+amount);
+        bankAccount.setBalance(amount.add(bankAccount.getBalance()));
     }
-    public void withdrawMoney(double amount){
+    public void withdrawMoney(BigDecimal amount){
 
-        if(bankAccount.getBalance()-amount < 0){
+        if(bankAccount.getBalance().subtract(amount).compareTo(new BigDecimal(0)) == -1){
             System.out.println("Insufcient funds, try again");
         } else {
             System.out.println("Succesfully withdraw " + amount);
-            bankAccount.setBalance(bankAccount.getBalance() - amount);
+            bankAccount.setBalance(bankAccount.getBalance().subtract(amount));
         }
     }
     public void interogateBalance(){
-        System.out.println("Balance: " + bankAccount.getBalance());
+        System.out.println("Balance: " + bankAccount.getBalance().setScale(2,BigDecimal.ROUND_HALF_EVEN));
     }
     public void changePin(int pin){
         System.out.println("Pin succesfully changed");

@@ -1,5 +1,6 @@
 package tema4.ATMHw;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class ATM {
@@ -7,12 +8,12 @@ public class ATM {
         ATM atm = new ATM();
         Scanner scan = new Scanner(System.in);
 
-        BankAccount b1 = new BankAccount("24443334443334", 5566.5);
+        BankAccount b1 = new BankAccount("24443334443334", new BigDecimal(543.4));
         atm.addCard(new Card("Alex", "123456", "08/24", 2411, b1));
         atm.addCard(new Card("Alex", "123455", "08/24", 1554, b1));
-        BankAccount b2 = new BankAccount("1999044434442332", 10000);
+        BankAccount b2 = new BankAccount("1999044434442332", new BigDecimal(10000));
         atm.addCard(new Card("Andreea", "123323", "10/25", 2312, b2));
-        BankAccount b3 = new BankAccount("2003994310013094", 234);
+        BankAccount b3 = new BankAccount("2003994310013094", new BigDecimal(77466.44));
         atm.addCard(new Card("Daniel", "100001", "12/21", 1234, b3));
         atm.addCard(new Card("Daniel", "100011", "12/21", 1235, b3));
         atm.addCard(new Card("Daniel", "100111", "12/21", 1236, b3));
@@ -41,11 +42,11 @@ public class ATM {
                                 card.interogateBalance();
                             } else if (key.equals("2")) {
                                 System.out.println("Enter the amount you want to deposit: ");
-                                long amount = scan.nextLong();
+                                BigDecimal amount = scan.nextBigDecimal();
                                 card.depositMoney(amount);
                             } else if(key.equals("3")){
                                 System.out.println("Enter the amount you want to withdraw");
-                                long amount = scan.nextLong();
+                                BigDecimal amount = scan.nextBigDecimal();
                                 card.withdrawMoney(amount);
                             } else if(key.equals("4")){
                                 System.out.println("Enter the new pin");

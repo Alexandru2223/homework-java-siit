@@ -1,5 +1,6 @@
 package tema4.ATMHw;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +12,10 @@ import lombok.ToString;
 public class BankAccount {
     private String iban;
     private List<String> attachedCardNumbers = new ArrayList<String>();
-    private double balance;
+    private BigDecimal balance;
 
 
-    public BankAccount(String iban, double balance) {
+    public BankAccount(String iban, BigDecimal balance) {
         this.iban = iban;
         this.balance = balance;
     }
@@ -23,7 +24,7 @@ public class BankAccount {
         this.attachedCardNumbers.add(attachedCardNumbers);
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }
