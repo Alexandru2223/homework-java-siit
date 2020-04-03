@@ -1,31 +1,17 @@
-package tema4.ATMHw;
+package tema5;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class ATM {
+public class ATMService {
     public static void main(String[] args) {
-        ATM atm = new ATM();
+        Repository repository = new Repository();
+        ATMService atm = new ATMService();
         Scanner scan = new Scanner(System.in);
-
-        BankAccount b1 = new BankAccount("24443334443334", new BigDecimal(543.4));
-        atm.addCard(new Card("Alex", "123456", "08/24", 2411, b1));
-        atm.addCard(new Card("Alex", "123455", "08/24", 1554, b1));
-        BankAccount b2 = new BankAccount("1999044434442332", new BigDecimal(10000));
-        atm.addCard(new Card("Andreea", "123323", "10/25", 2312, b2));
-        BankAccount b3 = new BankAccount("2003994310013094", new BigDecimal(77466.44));
-        atm.addCard(new Card("Daniel", "100001", "12/21", 1234, b3));
-        atm.addCard(new Card("Daniel", "100011", "12/21", 1235, b3));
-        atm.addCard(new Card("Daniel", "100111", "12/21", 1236, b3));
-        // System.out.println("Repository.cards = " + Repository.cards);
-      /*  for (Card service: Repository.cards) {
-            System.out.println(service.toString());
-        }*/
-
         while (true) {
             System.out.println("Enter card number: ");
             String cardNumber = scan.next();
-            for (Card card : Repository.cards) {
+            for (Card card : repository.cards) {
                 if (card.getCardNumber().equals(cardNumber)) {
                     System.out.println("Enter PIN: ");
                     int pin = scan.nextInt();
@@ -39,19 +25,20 @@ public class ATM {
                             System.out.println("Press x to cancel");
                             String key = scan.next();
                             if (key.equals("1")) {
-                                card.interogateBalance();
+                                atm.interrogateBalance(card);
+                                atm.printBalance(card);
                             } else if (key.equals("2")) {
                                 System.out.println("Enter the amount you want to deposit: ");
                                 BigDecimal amount = scan.nextBigDecimal();
-                                card.depositMoney(amount);
+                                atm.depositMoney(card,amount);
                             } else if(key.equals("3")){
                                 System.out.println("Enter the amount you want to withdraw");
                                 BigDecimal amount = scan.nextBigDecimal();
-                                card.withdrawMoney(amount);
+                                atm.withdrawMoney(card,amount);
                             } else if(key.equals("4")){
                                 System.out.println("Enter the new pin");
                                 int pin1 = scan.nextInt();
-                                card.changePin(pin1);
+                                atm.changePin(card,pin1);
                             } else if(key.equals("x")){
                                 break;
                             }
@@ -60,10 +47,31 @@ public class ATM {
                 }
             }
         }
-
     }
-
-    public void addCard(Card card) {
-        Repository.cards.add(card);
+    
+   public BigDecimal interrogateBalance(Card card){
+       return card.getBankAccount().getBalance();
+   }
+    public void depositMoney(Card card, BigDecimal amount){
+        card.getBankAccount().setBalance(card.getBankAccount().getBalance().add(amount));
+    }
+    public void withdrawMoney(Card card, BigDecimal amount){
+        if(card.getBankAccount().getBalance().compareTo(amount) == 1) {
+            card.getBankAccount().setBalance(card.getBankAccount().getBalance().subtract(amount));
+        } else{
+            System.out.println("Insufficient funds, try again.");
+        }
+    }
+    public void changePin(Card card, int pin){
+        String pin1 = String.valueOf(pin);
+        if(pin1.length() == 4) {
+            System.out.println("Pin changed");
+            card.setPin(pin);
+        } else {
+            System.out.println("Incorrect pin, try again (must be 4 digits)");
+        }
+    }
+    public void printBalance(Card card){
+        System.out.println("Balance: " + card.getBankAccount().getBalance());
     }
 }

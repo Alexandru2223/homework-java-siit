@@ -1,4 +1,4 @@
-package tema3.library;
+package tema3;
 
 public class Novels extends Book {
     private String type;

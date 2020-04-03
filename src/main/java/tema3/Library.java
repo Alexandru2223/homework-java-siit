@@ -1,4 +1,4 @@
-package tema3.library;
+package tema3;
 
 import java.io.*;
 import java.util.ArrayList;
