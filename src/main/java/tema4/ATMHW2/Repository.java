@@ -1,4 +1,4 @@
-package tema5;
+package tema4.ATMHW2;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -17,9 +17,5 @@ public class Repository {
         cards.add(new Card("Daniel", "100001", "12/21", 1234, b3));
         cards.add(new Card("Daniel", "100011", "12/21", 1235, b3));
         cards.add(new Card("Daniel", "100111", "12/21", 1236, b3));
-    }
-
-    public int returnPin(Card card){
-        return card.getPin();
     }
 }
