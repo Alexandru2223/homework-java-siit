@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter
 @ToString
@@ -15,14 +14,13 @@ import lombok.ToString;
 public class Circle implements Shape {
     private double radius;
 
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
 
     @Override
     public double getSurface() {
         return Math.PI * radius * radius;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return 2 * Math.PI * radius;
     }
 }
