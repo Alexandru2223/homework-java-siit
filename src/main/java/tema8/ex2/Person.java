@@ -15,6 +15,10 @@ import lombok.ToString;
 public class Person {
     private String namePerson;
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(namePerson);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -22,10 +26,5 @@ public class Person {
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
         return namePerson.equals(person.namePerson);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(namePerson);
     }
 }

@@ -51,7 +51,8 @@ public class Service {
         hobbies.put(p1, Lists.list(h1, h2));
         hobbies.put(p2, Lists.list(h3, h4, h5));
         hobbies.put(p3, Lists.list(h6));
-        hobbies.forEach((key, value) -> value.forEach((index) -> System.out.println(key.getNamePerson() +": " +"Name of hobby: " + index.getName() + " - Adress: " +index.getAdress())));
+        hobbies.forEach((key, value) -> value
+                .forEach((index) -> System.out.println(key.getNamePerson() + ": " + "Name of hobby: " + index.getName() + " - Adress: " + index.getAdress())));
     }
 
 
