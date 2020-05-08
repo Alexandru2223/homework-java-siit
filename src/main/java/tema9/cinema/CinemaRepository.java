@@ -1,4 +1,4 @@
-package tema9;
+package tema9.cinema;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
