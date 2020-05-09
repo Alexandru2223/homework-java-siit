@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class CinemaRepository {
-    List<Cinema> cinemas = new ArrayList<>();
+    public final static List<Cinema> cinemas = new ArrayList<>();
     Set<Seat> cinemaSeats = new LinkedHashSet<>();
-    Map<String, Seat>  seatMap = new HashMap<>();
+    public static Map<String, Seat>  seatMap = new HashMap<>();
     public CinemaRepository(){
 
         cinemaSeats.add(new Seat("A01",false, new BigDecimal("20.34")));

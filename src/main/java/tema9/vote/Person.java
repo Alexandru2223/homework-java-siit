@@ -10,16 +10,21 @@ să afișeze situația de la momentul curent.*/
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
 @Builder
+@ToString
+@Setter
 public class Person {
     private String lastName;
     private String firstName;
     private String adress;
-    private String CNP;
+    private String cnp;
     private String series;
+    private boolean voted;
     private int number;
 
 }

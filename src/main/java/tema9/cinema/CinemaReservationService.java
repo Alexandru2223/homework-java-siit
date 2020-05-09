@@ -8,24 +8,24 @@ package tema9.cinema;
 
 public class CinemaReservationService {
 
-
+    static CinemaRepository rep = new CinemaRepository();
 
     public static void main(String[] args) {
-        CinemaRepository rep = new CinemaRepository();
-        makeReservation(rep, "A01");
-        makeReservation(rep, "A03");
-        makeReservation(rep, "B11");
-        makeReservation(rep, "C12");
-        makeReservation(rep, "A1");
-        makeReservation(rep, "A03");
-        cancelReservation(rep, "A03");
+
+        makeReservation("A01");
+        makeReservation("A03");
+        makeReservation("B11");
+        makeReservation("C12");
+        makeReservation("A1");
+        makeReservation("A03");
+        cancelReservation("A03");
 
         //  System.out.println(rep.seatMap);
         //  rep.seatMap.forEach((s, seat) -> System.out.println(s + " " + seat.isReserved()));
 
     }
 
-    private static void makeReservation(CinemaRepository rep, String seatNumber) {
+    private static void makeReservation(String seatNumber) {
         try {
             if (!rep.seatMap.containsKey(seatNumber)) {
                 throw new IllegalArgumentException("Seat " + seatNumber + " doesn't exist.");
@@ -41,7 +41,7 @@ public class CinemaReservationService {
             System.out.println(e.getMessage());
         }
     }
-    private static void cancelReservation(CinemaRepository rep, String seatNumber) {
+    private static void cancelReservation( String seatNumber) {
         try {
             if (!rep.seatMap.containsKey(seatNumber)) {
                 throw new IllegalArgumentException("Seat " + seatNumber + " doesn't exist.");
