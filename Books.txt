@@ -1,0 +1,9 @@
+novel, Alexander the Great, 448, historical
+novel, Joan of Arc, 988, historical
+novel, Laurence Sterne’s Sentimental Journey, 1932, sentimental
+novel, Castle of Otranto, 578, gothic
+novel, Madame de La Fayette’s, 1099, pshychological
+album, Love’s Forever Changes, 304, good
+album, Neil Young’s Harvest, 100, bad
+album, The Smiths’ Meat Is Murder, 23, very good
+album, The Beatles’ Let It Be, 430, good
