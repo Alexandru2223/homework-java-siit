@@ -15,7 +15,7 @@ public enum TicketType {
             Collections.unmodifiableList(Arrays.asList(values()));
     private static final int SIZE = VALUES.size();
 
-    public static TicketType randomLetter() {
+    public static TicketType getRandomTicket() {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 }
